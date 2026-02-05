@@ -1,5 +1,5 @@
 {
-  "name": "amplify-vite-react-template",
+  "name": "amplify-vite-react-custom-pipeline",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -20,9 +20,9 @@
     "npm": ">= 10.8.0"
   },
   "devDependencies": {
-    "@aws-amplify/backend": "~1.19.0",
-    "@aws-amplify/backend-cli": "~1.8.1",
-    "@eslint/compat":  "~2.0.1",
+    "@aws-amplify/backend": "0.0.0-test-20260205105806",
+    "@aws-amplify/backend-cli": "0.0.0-test-20260205105806",
+    "@eslint/compat": "~2.0.1",
     "@eslint/eslintrc": "~3.3.3",
     "@eslint/js": "~9.39.2",
     "@types/react": "~18.3.27",

@@ -1,8 +1,23 @@
 import { defineBackend } from '@aws-amplify/backend';
 import { auth } from './auth/resource';
-import { data } from './data/resource';
+// Data disabled until @aws-amplify/data-construct supports custompipeline
+// import { data } from './data/resource';
+import { defineFrontend, definePipeline } from './custom/pipeline/resource';
 
-defineBackend({
+const backend = defineBackend({
   auth,
-  data,
+  // data,
+});
+
+// Define frontend hosting (S3 + CloudFront)
+const frontend = defineFrontend(backend.createStack('Frontend'));
+
+// Define CI/CD pipeline (deploys backend with --custom-pipeline, then frontend)
+definePipeline(backend.createStack('Pipeline'), {
+  githubOwner: 'adrianjoshua-strutt',
+  githubRepo: 'amplify-vite-react-custom-pipeline',
+  githubBranch: 'main',
+  githubTokenSecretName: 'github-token',
+  stackName: 'amplify-vite-react-custom-pipeline',
+  frontend,
 });
