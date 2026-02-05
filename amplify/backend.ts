@@ -12,7 +12,7 @@ const backend = defineBackend({
 // Define frontend hosting (S3 + CloudFront)
 const frontend = defineFrontend(backend.createStack('Frontend'));
 
-// Define CI/CD pipeline (deploys backend with --custom-pipeline, then frontend)
+// Define CI/CD pipeline without Amplify Hosting
 definePipeline(backend.createStack('Pipeline'), {
   githubOwner: 'adrianjoshua-strutt',
   githubRepo: 'amplify-vite-react-custom-pipeline',
