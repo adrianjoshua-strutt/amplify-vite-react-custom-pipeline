@@ -109,7 +109,7 @@ export function definePipeline(stack: Stack, props: PipelineProps): PipelineOutp
       phases: {
         install: {
           'runtime-versions': { nodejs: 20 },
-          commands: ['npm ci', 'npx ampx --version'],
+          commands: ['npm install', 'npx ampx --version'],
         },
         build: {
           commands: [
@@ -146,7 +146,7 @@ export function definePipeline(stack: Stack, props: PipelineProps): PipelineOutp
       phases: {
         install: {
           'runtime-versions': { nodejs: 20 },
-          commands: ['npm ci'],
+          commands: ['npm install'],
         },
         pre_build: {
           commands: [
